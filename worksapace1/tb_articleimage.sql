@@ -1,0 +1,29 @@
+CREATE TABLE `tb_bbs_articleimage` (
+	`articleno` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`boardcd` VARCHAR(20) NULL DEFAULT NULL,
+	`title` VARCHAR(200) NULL DEFAULT NULL,
+	`content` MEDIUMTEXT NULL,
+	`email` VARCHAR(60) NULL DEFAULT NULL,
+	`hit` INT(10) UNSIGNED NULL DEFAULT '0',
+	`regdate` DATETIME NULL DEFAULT NULL,
+	`UseYN` TINYINT(1) NOT NULL DEFAULT '1',
+	`countgood` INT(11) NULL DEFAULT '0',
+	`countbad` INT(11) NULL DEFAULT '0',
+	`InsertUID` VARCHAR(40) NULL DEFAULT NULL,
+	`InsertDT` DATETIME NULL DEFAULT NULL,
+	`UpdateUID` VARCHAR(40) NULL DEFAULT NULL,
+	`UpdateDT` DATETIME NULL DEFAULT NULL,
+	`uploadImageNo` INT(10) UNSIGNED NULL DEFAULT NULL,
+	`fileName` VARCHAR(50) NULL DEFAULT NULL,
+	`fileSize` INT(10) UNSIGNED NULL DEFAULT NULL,
+	`contentType` VARCHAR(30) NULL DEFAULT NULL,
+	`imageBytes` LONGBLOB NULL,
+	`imageBase64` LONGTEXT NULL,
+	PRIMARY KEY (`articleno`),
+	INDEX `boardcd` (`boardcd`),
+	CONSTRAINT `FK_tb_bbs_articleimage_tb_bbs_board` FOREIGN KEY (`boardcd`) REFERENCES `tb_bbs_board` (`boardcd`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=18
+;
